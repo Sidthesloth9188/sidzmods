@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SidZMods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+    header, section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    h1, h2 {
+      color: #00d1b2;
+    }
+    a {
+      color: #00d1b2;
+      text-decoration: none;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .important {
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    form input, form textarea, form button {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+    form button {
+      background-color: #00d1b2;
+      color: white;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #00b39b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SidZMods</h1>
+    <p>🚀 Elevate Your DayZ Server with Custom and Pre-Made Builds</p>
+  </header>
+
+  <section>
+    <h2>💰 Price List</h2>
+    <ul>
+      <li>🔹 Small Edits – $5-$20 (Checkpoints, loot stashes, interiors)</li>
+      <li>🔸 Medium Builds – $25-$75 (Trader hubs, faction bases, PvP arenas)</li>
+      <li>🔺 Large Projects – $100-$200+ (Military bases, city expansions, bunkers)</li>
+      <li>🛠️ Custom Work – Starting at $25</li>
+      <li>📁 File edits (XML, CFG files) – Start at $15</li>
+    </ul>
+    <p class="important">《 If you would like, the project you pay for can be put into the paid projects category for premium members 》</p>
+  </section>
+
+  <section>
+    <h2>💳 How to Pay</h2>
+    <ul>
+      <li>Send payment via <a href="https://www.paypal.com/paypalme/ADayZWalk" target="_blank">PayPal</a></li>
+      <li>Or via <a href="https://cash.app/$Jeffrey7211" target="_blank">CashApp</a></li>
+    </ul>
+    <p>Whenever you want to buy something, make a ticket!</p>
+  </section>
+
+  <section>
+    <h2>📢 After Payment</h2>
+    <p>In the ticket you will have created, post a screenshot of your payment!</p>
+    <p class="important">All payments are final.</p>
+    <p>ℹ️ You will have to pay half upfront (e.g., if cost is $20, you pay $10 first, then $10 once the project is finished).</p>
+  </section>
+
+  <section>
+    <h2>🔥 Why Choose Sid's Projects?</h2>
+    <ul>
+      <li>✅ <strong>High-Quality Builds</strong> – Custom and pre-made projects tailored to your server’s needs.</li>
+      <li>✅ <strong>Beyond Traders & Events</strong> – Have a unique idea? Let’s make it happen!</li>
+      <li>✅ <strong>Revisions & Edits</strong> – Your satisfaction is my priority—I’ll fine-tune your project to perfection.</li>
+      <li>✅ <strong>Fast Response Time</strong> – I reply almost instantly or within the hour.</li>
+      <li>✅ <strong>Monthly Giveaways</strong> – Exclusive rewards for both premium and non-premium members!</li>
+    </ul>
+    <p>💬 Let’s create something amazing for your server!</p>
+    <p>🔗 <a href="https://discord.gg/awErYg7r5Z" target="_blank">Join Our Discord</a></p>
+    <p>💰 <a href="https://www.paypal.com/paypalme/ADayZWalk" target="_blank">PayPal</a> | <a href="https://cash.app/$Jeffrey7211" target="_blank">CashApp</a></p>
+  </section>
+
+  <section>
+    <h2>🖼️ Project Gallery</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Project+1" alt="Project 1">
+      <img src="https://via.placeholder.com/300x200?text=Project+2" alt="Project 2">
+      <img src="https://via.placeholder.com/300x200?text=Project+3" alt="Project 3">
+    </div>
+  </section>
+
+  <section>
+    <h2>📬 Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="discord" placeholder="Discord Username" required>
+      <textarea name="project" rows="5" placeholder="Project Info" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const discord = e.target.discord.value;
+        const project = e.target.project.value;
+
+        const payload = {
+          content: `📬 New Contact Form Submission:\n**Name:** ${name}\n**Discord:** ${discord}\n**Project Info:**\n${project}`
+        };
+
+        await fetch('https://discord.com/api/webhooks/1365098576115400786/armw9p82NWW422u682tWyytMD3wdrVI0g9pghuZkCi5np5XCI72tOcu1x8dgRuhQXGB3', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        alert('Message sent! I'll get back to you ASAP.');
+        e.target.reset();
+      });
+    </script>
+  </section>
+</body>
+</html>
