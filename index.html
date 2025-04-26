@@ -120,37 +120,17 @@
     </div>
   </section>
 
-  <section>
-    <h2>📬 Contact Me</h2>
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="text" name="discord" placeholder="Discord Username" required>
-      <textarea name="project" rows="5" placeholder="Project Info" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <script>
-      document.getElementById('contactForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const name = e.target.name.value;
-        const discord = e.target.discord.value;
-        const project = e.target.project.value;
+<section>
+  <h2>📬 Contact Me</h2>
+  <form id="contactForm" action="https://formsubmit.co/sidsprojectsandsales@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="project" rows="5" placeholder="Project Info" required></textarea>
+    
+    <!-- Optional: Prevent bot spam -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
 
-        const payload = {
-          content: `📬 New Contact Form Submission:\n**Name:** ${name}\n**Discord:** ${discord}\n**Project Info:**\n${project}`
-        };
-
-        await fetch('https://discord.com/api/webhooks/1365098576115400786/armw9p82NWW422u682tWyytMD3wdrVI0g9pghuZkCi5np5XCI72tOcu1x8dgRuhQXGB3', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-
-        alert('Message sent! I'll get back to you ASAP.');
-        e.target.reset();
-      });
-    </script>
-  </section>
-</body>
-</html>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
