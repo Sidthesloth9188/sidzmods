@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
   <title>SidZMods</title>
   <style>
     body {
@@ -84,8 +89,8 @@
   <section>
     <h2>💳 How to Pay</h2>
     <ul>
-      <li>Send payment via <a href="https://www.paypal.com/paypalme/ADayZWalk" target="_blank">PayPal</a></li>
-      <li>Or via <a href="https://cash.app/$Jeffrey7211" target="_blank">CashApp</a></li>
+      <li>Send payment via <a href="https://www.paypal.com/paypalme/ADayZWalk" target="_blank" rel="noopener noreferrer">PayPal</a></li>
+      <li>Or via <a href="https://cash.app/$Jeffrey7211" target="_blank" rel="noopener noreferrer">CashApp</a></li>
     </ul>
     <p>Whenever you want to buy something, make a ticket!</p>
   </section>
@@ -107,8 +112,8 @@
       <li>✅ <strong>Monthly Giveaways</strong> – Exclusive rewards for both premium and non-premium members!</li>
     </ul>
     <p>💬 Let’s create something amazing for your server!</p>
-    <p>🔗 <a href="https://discord.gg/awErYg7r5Z" target="_blank">Join Our Discord</a></p>
-    <p>💰 <a href="https://www.paypal.com/paypalme/ADayZWalk" target="_blank">PayPal</a> | <a href="https://cash.app/$Jeffrey7211" target="_blank">CashApp</a></p>
+    <p>🔗 <a href="https://discord.gg/awErYg7r5Z" target="_blank" rel="noopener noreferrer">Join Our Discord</a></p>
+    <p>💰 <a href="https://www.paypal.com/paypalme/ADayZWalk" target="_blank" rel="noopener noreferrer">PayPal</a> | <a href="https://cash.app/$Jeffrey7211" target="_blank" rel="noopener noreferrer">CashApp</a></p>
   </section>
 
   <section>
@@ -120,13 +125,28 @@
     </div>
   </section>
 
-<section>
-  <h2>📬 Contact Me</h2>
-  <form id="contactForm" action="https://formspree.io/f/mldbdbwr" method="POST">
-    <input type="text" name="name" placeholder="First Name(optional)" optional>
-    <input type="text" name="discord" placeholder="Discord Username" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="project" rows="5" placeholder="Project Info" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+  <section>
+    <h2>📬 Contact Me</h2>
+    <form id="contactForm" action="https://formspree.io/f/mldbdbwr" method="POST" onsubmit="return validateForm()">
+      <input type="text" name="name" placeholder="First Name (optional)" optional>
+      <input type="text" name="discord" placeholder="Discord Username" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="project" rows="5" placeholder="Project Info" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    // Form validation example (you can add more rules)
+    function validateForm() {
+      const email = document.querySelector('input[name="email"]').value;
+      const discord = document.querySelector('input[name="discord"]').value;
+      if (!email || !discord) {
+        alert("Please fill out all required fields.");
+        return false;  // Prevent form submission if validation fails
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
