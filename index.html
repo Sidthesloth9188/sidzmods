@@ -5,68 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SidZMods</title>
   <style>
-   body {
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  background-image: url('Website_imagw.jpeg'); /* Make sure your path matches your repo */
-  background-size: contain; /* Show the entire image without cropping */
-  background-repeat: no-repeat; /* No repeating */
-  background-attachment: fixed; /* Keep the image fixed when scrolling */
-  background-position: center center; /* Center the image */
-  background-blend-mode: overlay; /* Optional: blends color with background for better readability */
-  color: #f0f0f0;
-  margin: 0;
-  padding: 20px;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      background-image: url('Website_imagw.jpeg'); /* Make sure your image is uploaded to the repo */
+      background-size: contain; /* Show the full image */
+      background-repeat: no-repeat; /* No repeat */
+      background-attachment: fixed; /* Don't move on scroll */
+      background-position: center center; /* Center it */
+      background-blend-mode: overlay; /* Slight overlay for better text visibility */
+      color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh; /* Make sure body covers full screen */
+    }
 
     header, section {
       max-width: 900px;
       margin: auto;
       padding: 20px;
-      background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent background */
+      background-color: rgba(30, 30, 30, 0.85); /* Semi-transparent dark background */
       border-radius: 12px;
       margin-bottom: 20px;
+      backdrop-filter: blur(5px); /* Slight blur for a "glassy" effect */
     }
+
     h1, h2 {
       color: #00d1b2;
     }
+
     a {
       color: #00d1b2;
       text-decoration: none;
     }
+
     ul {
       padding-left: 20px;
     }
+
     .important {
       font-weight: bold;
       color: #ffcc00;
     }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 10px;
     }
+
     .gallery img {
       width: 100%;
       border-radius: 8px;
     }
+
     form {
       display: flex;
       flex-direction: column;
     }
+
     form input, form textarea, form button {
       margin-bottom: 10px;
       padding: 10px;
       border-radius: 8px;
       border: none;
     }
+
     form button {
       background-color: #00d1b2;
       color: white;
       cursor: pointer;
     }
+
     form button:hover {
       background-color: #00b39b;
+    }
+
+    /* Extra mobile adjustments */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+        background-size: cover; /* On very small screens, switch from contain to cover */
+      }
+
+      header, section {
+        padding: 15px;
+      }
     }
   </style>
 </head>
@@ -130,7 +154,7 @@
   <section>
     <h2>📬 Contact Me</h2>
     <form id="contactForm" action="https://formspree.io/f/mldbdbwr" method="POST">
-      <input type="text" name="name" placeholder="First Name (optional)" optional>
+      <input type="text" name="name" placeholder="First Name (optional)">
       <input type="text" name="discord" placeholder="Discord Username" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="project" rows="5" placeholder="Project Info" required></textarea>
