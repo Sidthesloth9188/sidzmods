@@ -8,25 +8,25 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #121212;
-      background-image: url('Website_imagw.jpeg'); /* Make sure your image is uploaded to the repo */
-      background-size: cover; /* Show the full image */
-      background-repeat: no-repeat; /* No repeat */
-      background-attachment: fixed; /* Don't move on scroll */
-      background-position: center center; /* Center it */
+      background-image: url('Website_imagw.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
       color: #f0f0f0;
       margin: 0;
       padding: 20px;
-      min-height: 100vh; /* Make sure body covers full screen */
+      min-height: 100vh;
     }
 
     header, section {
       max-width: 900px;
       margin: auto;
       padding: 20px;
-      background-color: rgba(30, 30, 30, 0.85); /* Semi-transparent dark background */
+      background-color: rgba(30, 30, 30, 0.85);
       border-radius: 12px;
       margin-bottom: 20px;
-      backdrop-filter: blur(5px); /* Slight blur for a "glassy" effect */
+      backdrop-filter: blur(5px);
     }
 
     h1, h2 {
@@ -80,16 +80,39 @@
       background-color: #00b39b;
     }
 
-    /* Extra mobile adjustments */
-    @media (max-width: 600px) {
+      @media (max-width: 600px) {
       body {
         padding: 10px;
-        background-size: cover; /* On very small screens, switch from contain to cover */
+        background-size: cover;
       }
 
       header, section {
         padding: 15px;
       }
+    }
+
+    .popup-notice {
+      position: fixed;
+      bottom: -300px;
+      right: 20px;
+      width: 350px;
+      max-width: 90%;
+      background-color: #1f1f1f;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      transition: bottom 0.7s ease;
+      font-size: 14px;
+    }
+
+    .popup-notice.show {
+      bottom: 20px;
+    }
+
+    .popup-notice strong {
+      color: #ffcc00;
     }
   </style>
 </head>
@@ -160,5 +183,27 @@
       <button type="submit">Send Message</button>
     </form>
   </section>
+
+  <div id="popupNotice" class="popup-notice">
+    <p>
+      <strong>Sorry for the inconvenience</strong>, but I am not working on/selling any projects for others at this time.
+      I have been taking a break from this for quite some time and wish to return to it in the future.<br><br>
+      If you want to request a project, please fill out the form below and/or create a ticket in my Discord listed below.<br><br>
+      <strong>[THERE IS NO GUARANTEE I WILL BE FULFILLING YOUR REQUEST AT THIS TIME!]</strong>
+    </p>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const popup = document.getElementById('popupNotice');
+      setTimeout(() => {
+        popup.classList.add('show');
+      }, 1000);
+
+      setTimeout(() => {
+        popup.classList.remove('show');
+      }, 15000);
+    });
+  </script>
 </body>
 </html>
